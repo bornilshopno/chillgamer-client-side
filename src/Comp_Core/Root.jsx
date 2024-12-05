@@ -5,6 +5,7 @@ import Layout from "./Layout";
 import Home from "../Comp_Home/Home";
 import Login from "../Comp_Auths/Login";
 import Register from "../Comp_Auths/Register";
+import AddReview from "../Comp_Review/AddReview";
 
 
  const router = createBrowserRouter([
@@ -24,7 +25,7 @@ import Register from "../Comp_Auths/Register";
         element:<Register></Register>
       },
       {path:"/add-review",
-        element:<h2>this is nested</h2>
+        element:<AddReview></AddReview>
       },
       {path:"/review/:id",
         element:<h2>this is nested</h2>

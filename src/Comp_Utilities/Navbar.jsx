@@ -51,7 +51,7 @@ const Navbar = () => {
           {user ?
             <div className="flex gap-1">
               {user?.photoURL ?
-                <a id="my-anchor-element" events={['hover']}>
+                <a id="my-anchor-element" >
                   <img
                     src={user.photoURL} className="rounded-full h-12 w-12 border-2 bg-gray-600 border-gray-600"
                     alt="user" />
@@ -70,7 +70,12 @@ const Navbar = () => {
                 <Link className="btn btn-active btn-neutral ml-2" to="/register">Registar</Link>
                 <Link className="btn btn-active btn-neutral ml-2" to="/login">LogIn</Link>
               </div>
-              <div className={`${(pathname === '/register' || pathname === '/login') ? 'p-2' : 'hidden'} `}>
+              <div className={`${(pathname === '/register') ? 'p-2' : 'hidden'} `}>
+              <Link className="btn btn-active btn-neutral ml-2" to="/login">LogIn</Link>
+              <Link className="btn btn-active btn-neutral ml-2" to="/">Back to Home</Link>
+              </div>
+              <div className={`${(pathname === '/login') ? 'p-2' : 'hidden'} `}>
+                <Link className="btn btn-active btn-neutral ml-2" to="/register">Registar</Link>
                 <Link className="btn btn-active btn-neutral ml-2" to="/">Back to Home</Link>
               </div>
             </div>

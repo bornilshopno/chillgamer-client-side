@@ -1,14 +1,16 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../Comp_Core/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { IoEye } from "react-icons/io5";
+import { IoMdEyeOff } from "react-icons/io";
 
 
 const Login = () => {
-    const{setUser,userLogin,googleSignIn}= useContext(AuthContext)
+    const{setUser,userLogin,googleSignIn}= useContext(AuthContext);
+    const [visible, setVisible] = useState(false)
     const navigate=useNavigate()
     const emailRef=useRef();
     const handleLogIn=(e)=>{
@@ -51,6 +53,13 @@ const Login = () => {
         //
     }
 
+//     const navigate = useNavigate();
+//     const location = useLocation();
+//     const from = location.state?.from || '/';
+// <Navigate to={ '/login' } state={ { from: location } } replace />
+
+
+
     return (
 
         
@@ -64,13 +73,6 @@ const Login = () => {
            
         </div>
    
-         
-            <button className="active:bg-sky-700  rounded-lg  bg-blue-600 my-auto border-2 w-3/12" onClick={googleHandler}>
-            <div className="flex gap-2 items-center justify-center px-3 py-1">
-              <h2>Login with</h2>
-              <FcGoogle />
-            </div>
-            </button>
         
           </div>
              <div className="card bg-base-100 w-10/12 lg:w-7/12 mx-auto shrink-0 shadow-2xl">
@@ -85,13 +87,17 @@ const Login = () => {
           <input name="email" type="email" placeholder="email" ref={emailRef} className="input input-bordered" required />
         </div>
       
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input name="password" type="password" placeholder="password"  className="input input-bordered" required />
+          {/* <input name="password" type="password" placeholder="password"  className="input input-bordered" required /> */}
+          <input name="password" type={visible ? "text" : "password"} placeholder="password" className="input input-bordered " required />
+                            <button className="absolute right-4 top-12" onClick={() => setVisible(!visible)}>
+                                {visible ? <IoMdEyeOff className="text-2xl text-gray-400"></IoMdEyeOff> : <IoEye className="text-gray-400 text-2xl"></IoEye>}
+                            </button>
           <label className="label">
-          {/* <Link to={"/recover_password"} state={{recoveryEmail}}  onClick={emailHandler} className="label-text-alt link link-hover" >Forgot password?</Link> */}
+         
           <h2 className=" flex gap-2">
               <span className="text-red-900 font-semibold my-auto text-sm">Not Registered?</span> 
             <Link to="/register" className=" btn-link h-6 text-sm">SignUp</Link>
@@ -106,6 +112,14 @@ const Login = () => {
           
         
       </form>
+
+      <button className="btn btn-primary mx-8 mb-8" type="submit" onClick={googleHandler}>
+                        <div className="flex gap-2 items-center px-3 py-1 justify-center">
+                        <FcGoogle />
+                            <h2>Login with Google</h2>
+                            
+                        </div>
+                    </button>
     </div>
       </div>
     );
