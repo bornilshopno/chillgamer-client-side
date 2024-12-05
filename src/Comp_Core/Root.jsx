@@ -6,6 +6,8 @@ import Home from "../Comp_Home/Home";
 import Login from "../Comp_Auths/Login";
 import Register from "../Comp_Auths/Register";
 import AddReview from "../Comp_Review/AddReview";
+import AllReview from "../Comp_Review/AllReview";
+import ReviewDetails from "./ReviewDetails";
 
 
  const router = createBrowserRouter([
@@ -28,10 +30,12 @@ import AddReview from "../Comp_Review/AddReview";
         element:<AddReview></AddReview>
       },
       {path:"/review/:id",
-        element:<h2>this is nested</h2>
+        element:<ReviewDetails></ReviewDetails> ,
+        loader:({params})=>fetch(`http://localhost:4000/reviews/${params.id}`)
       },
       {path:"/reviews",
-        element:<h2>this is nested</h2>
+        element: <AllReview></AllReview>,
+        loader: ()=>fetch("http://localhost:4000/reviews")
       },
       {path:"/my-reviews",
         element:<h2>this is nested</h2>
