@@ -8,6 +8,7 @@ import Register from "../Comp_Auths/Register";
 import AddReview from "../Comp_Review/AddReview";
 import AllReview from "../Comp_Review/AllReview";
 import ReviewDetails from "./ReviewDetails";
+import Watchlist from "../Comp_Review/Watchlist";
 
 
  const router = createBrowserRouter([
@@ -44,7 +45,8 @@ import ReviewDetails from "./ReviewDetails";
         element:<h2>this is nested</h2>
       },
       {path:"/my-watchlist",
-        element:<h2>this is nested</h2>
+        element:<Watchlist></Watchlist>,
+        loader: ()=>fetch("http://localhost:4000/watchlist")
       }
     ]
     },
