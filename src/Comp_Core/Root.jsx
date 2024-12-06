@@ -7,8 +7,9 @@ import Login from "../Comp_Auths/Login";
 import Register from "../Comp_Auths/Register";
 import AddReview from "../Comp_Review/AddReview";
 import AllReview from "../Comp_Review/AllReview";
-import ReviewDetails from "./ReviewDetails";
+import ReviewDetails from "../Comp_Review/ReviewDetails";
 import Watchlist from "../Comp_Review/Watchlist";
+import MyReview from "../Comp_Review/MyReview";
 
 
  const router = createBrowserRouter([
@@ -39,7 +40,8 @@ import Watchlist from "../Comp_Review/Watchlist";
         loader: ()=>fetch("http://localhost:4000/reviews")
       },
       {path:"/my-reviews",
-        element:<h2>this is nested</h2>
+        element:<MyReview></MyReview>,
+        loader: ()=>fetch("http://localhost:4000/reviews")
       },
       {path:"/update-review/:id",
         element:<h2>this is nested</h2>
@@ -50,6 +52,9 @@ import Watchlist from "../Comp_Review/Watchlist";
       }
     ]
     },
+    {path:"*",
+      element:<h2>Errror page</h2>
+    }
   ]
   ,
   {

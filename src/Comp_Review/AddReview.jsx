@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Comp_Core/AuthProvider";
 
 
 const AddReview = () => {
+  const {user}=useContext(AuthContext);
 const addReviewHandler=(e)=>{
   e.preventDefault();
   console.log('Click Maicche')
@@ -98,13 +101,13 @@ const addReviewHandler=(e)=>{
           <label className="label">
             <span className="label-text">User Email</span>
           </label>
-          <input type="email" name="email"  className="input input-bordered bg-slate-100" value={"manna@gmail.com"} readOnly />
+          <input type="email" name="email"  className="input input-bordered bg-slate-100" value={user.email} readOnly />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">User Name</span>
           </label>
-          <input type="text" name="name" className="input input-bordered bg-slate-100" value={"Manna"} readOnly />
+          <input type="text" name="name" className="input input-bordered bg-slate-100" value={user.displayName} readOnly />
           
         </div>
        </div>
