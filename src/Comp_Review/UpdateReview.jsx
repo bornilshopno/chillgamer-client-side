@@ -1,15 +1,48 @@
 import { useContext } from "react";
 import { AuthContext } from "../Comp_Core/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const UpdateReview = () => {
     const reviewToUpdate = useLoaderData();
-    const { thumbnail, title, review, rating, publication, genre, email, name } = reviewToUpdate;
+    const {_id, thumbnail, title, review, rating, publication, genre, email, name } = reviewToUpdate;
     console.log(reviewToUpdate)
     const { user } = useContext(AuthContext)
+    const navigate=useNavigate()
+
     const updateReviewHandler = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        const form = e.target;
+        const thumbnail = form.thumbnail.value;
+        const review = form.review.value;
+        const rating = form.rating.value;
+        const publication = form.publication.value;
+        const genre = form.genre.value;
+
+
+        const updatedReview = { thumbnail, review, rating, publication, genre}
+
+        console.log(updatedReview)
+
+        fetch(`http://localhost:4000/reviews/${_id}`, {
+            method: "PUT",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(updatedReview)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        title: 'success!',
+                        text: 'Review Updated Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Done!'
+                    });
+                    navigate("/my-reviews")
+                }
+            })
     }
 
 
@@ -25,16 +58,16 @@ const UpdateReview = () => {
                             <label className="label">
                                 <span className="label-text">Game Thumbnail</span>
                             </label>
-                            <input type="url" name="thumbnail" placeholder="an URL for game cover" className="input input-bordered" required />
+                            <input type="url" name="thumbnail" placeholder="an URL for game cover" defaultValue={thumbnail} className="input input-bordered" required />
                         </div>
                         <div className="form-control lg:col-span-2">
                             <label className="label">
-                                <span className="label-text">Game Thumbnail</span>
+                                <span className="label-text">Detailed Review</span>
                             </label>
                             <textarea
-                                placeholder="Detail Review" name="review"
+                                placeholder="Detail Review" name="review" defaultValue={review}
                                 className="textarea textarea-bordered textarea-md w-full"></textarea>
-                           
+
                         </div>
 
                         {/* <div className="form-control">
@@ -47,19 +80,19 @@ const UpdateReview = () => {
                             <label className="label">
                                 <span className="label-text">Rating</span>
                             </label>
-                            <input type="number" name="rating" placeholder="Rate the Game" className="input input-bordered" required />
+                            <input type="number" name="rating" placeholder="Rate the Game" defaultValue={rating} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Publishing Year</span>
                             </label>
-                            <input type="text" name="publication" placeholder="Ex: 2021 or 2024)" className="input input-bordered" required />
+                            <input type="text" name="publication" placeholder="Ex: 2021 or 2024)" defaultValue={publication} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Genres</span>
                             </label>
-                            <select className="select w-full  input-bordered" name="genre" defaultValue={"Pick game Genre from dropdown"}>
+                            <select className="select w-full  input-bordered" name="genre" defaultValue={genre}>
                                 <option disabled >Pick game Genre from dropdown</option>
                                 <option>Action</option>
                                 <option>RPG</option>
@@ -83,7 +116,7 @@ const UpdateReview = () => {
                         </div> */}
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Submit your Review</button>
+                        <button className="btn btn-primary">Update your Review</button>
                     </div>
                 </form>
             </div>
