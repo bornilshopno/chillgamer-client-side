@@ -2,7 +2,7 @@ import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../Comp_Core/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { IoEye } from "react-icons/io5";
 import { IoMdEyeOff } from "react-icons/io";
@@ -53,8 +53,8 @@ const Login = () => {
         //
     }
 
-//     const navigate = useNavigate();
-//     const location = useLocation();
+  
+    const location = useLocation();
 //     const from = location.state?.from || '/';
 // <Navigate to={ '/login' } state={ { from: location } } replace />
 

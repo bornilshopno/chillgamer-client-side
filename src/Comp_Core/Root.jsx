@@ -10,6 +10,7 @@ import AllReview from "../Comp_Review/AllReview";
 import ReviewDetails from "../Comp_Review/ReviewDetails";
 import Watchlist from "../Comp_Review/Watchlist";
 import MyReview from "../Comp_Review/MyReview";
+import UpdateReview from "../Comp_Review/UpdateReview";
 
 
  const router = createBrowserRouter([
@@ -44,7 +45,8 @@ import MyReview from "../Comp_Review/MyReview";
         loader: ()=>fetch("http://localhost:4000/reviews")
       },
       {path:"/update-review/:id",
-        element:<h2>this is nested</h2>
+        element:<UpdateReview></UpdateReview>,
+        loader:({params})=>fetch(`http://localhost:4000/reviews/${params.id}`)
       },
       {path:"/my-watchlist",
         element:<Watchlist></Watchlist>,

@@ -78,7 +78,8 @@ const MyReview = () => {
                                     <td>{mine.rating}</td>
                                     <td>
                                         <div className="join join-vertical lg:join-horizontal">
-                                            <button className="btn join-item btn-info" onClick={() => updateHandler(`${mine._id}`)}>Update</button>
+                                           <Link to={`/update-review/${mine._id}`} > <button className="btn join-item btn-info" onClick={() => updateHandler(`${mine._id}`)}>Update</button></Link>
+                                            {/*  */}
                                             <button className="btn join-item btn-error" onClick={() => deleteHandler(`${mine._id}`)}>Delete</button>
                                         </div>
                                     </td>

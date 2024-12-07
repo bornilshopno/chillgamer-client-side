@@ -17,6 +17,7 @@ const CardOfAllReveiw = ({ reviews }) => {
 
                 <h2 className="card-title">{title}</h2>
                 <p>Genre : {genre} </p>
+                <p>Rating : {rating}</p>
 
                 <div className="card-actions justify-end">
                     <Link to={`/review/${_id}`}>

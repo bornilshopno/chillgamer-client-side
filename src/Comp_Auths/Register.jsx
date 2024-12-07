@@ -54,7 +54,7 @@ const Register = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         setPassErr(errorCode,errorMessage)
-        
+        toast.error(`Resgistration Failed due to ${passErr}`)
       });
         //
     }
