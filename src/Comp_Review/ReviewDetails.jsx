@@ -18,7 +18,7 @@ const ReviewDetails = () => {
   const watchlistHandler = () => {
 
     const selectedToWatch = { thumbnail, title, review, rating, publication, genre, email, name, watchlistedBy }
-    fetch("http://localhost:4000/watchlist", {
+    fetch("https://server-side-chil-gamer.vercel.app/watchlist", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(selectedToWatch)
@@ -34,7 +34,7 @@ const ReviewDetails = () => {
             confirmButtonText: 'Cool!'
           });
          
-          // navigate("/reviews")
+          navigate("/reviews")
         }
       })
 

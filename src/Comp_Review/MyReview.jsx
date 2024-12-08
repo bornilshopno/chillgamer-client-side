@@ -23,7 +23,7 @@ const MyReview = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:4000/reviews/${id}`,
+                fetch(`https://server-side-chil-gamer.vercel.app/reviews/${id}`,
                     { method: "DELETE" }
                 )
                     .then(res => res.json())
@@ -48,33 +48,28 @@ const MyReview = () => {
 
     }
 
-    
-
-
-
-
     return (
-        <div className="lg:min-h-96">
+        <div className="lg:min-h-96 my-10 lg:my-20">
             {myReviews.length !== 0 ?
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto w-11/12 md:w-10/12 lg:w-9/12 mx-auto flex items-center">
                     <table className="table">
                         {/* head */}
-                        <thead>
+                        <thead className="bg-gray-400 text-white">
                             <tr>
-                                <th>Game</th>
-                                <th>Genre</th>
-                                <th>Rating</th>
-                                <th>Change of Mind</th>
+                                <th className="text-center">Game</th>
+                                <th className="text-center">Genre</th>
+                                <th className="text-center">Rating</th>
+                                <th className="text-center">Change of Mind</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             {myReviews.map(mine =>
                                 <tr key={mine._id}>
-                                    <td>{mine.title}</td>
-                                    <td>{mine.genre}</td>
-                                    <td>{mine.rating}</td>
-                                    <td>
+                                    <td className="text-center">{mine.title}</td>
+                                    <td className="text-center">{mine.genre}</td>
+                                    <td className="text-center">{mine.rating}</td>
+                                    <td className="text-center">
                                         <div className="join join-vertical lg:join-horizontal">
                                            <Link to={`/update-review/${mine._id}`} > <button className="btn join-item btn-info" >Update</button></Link>
                                             {/*  */}
@@ -89,7 +84,7 @@ const MyReview = () => {
                     </table>
                 </div>
                 :
-                <h2>No Reviews from you here.<Link className="text-blue-500" to={"/add-review"}>Add Reviews</Link> now?</h2>}
+                <h2 className="text-4xl text-center">No Reviews from you here. <Link className="text-blue-500" to={"/add-review"}>Add Reviews</Link> now?</h2>}
         </div>
     );
 };

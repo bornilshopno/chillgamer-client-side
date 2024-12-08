@@ -13,6 +13,7 @@ import MyReview from "../Comp_Review/MyReview";
 import UpdateReview from "../Comp_Review/UpdateReview";
 import ErrorPage from "../Comp_Utilities/ErrorPage";
 import Developer from "../Comp_Utilities/Developer";
+import PrivateRoute from "../Comp_Utilities/PrivateRoute";
 
 
 
@@ -25,7 +26,7 @@ import Developer from "../Comp_Utilities/Developer";
         {
         path:"/",
         element: <Home/>,
-        loader: ()=>fetch('http://localhost:4000/ratedReviews')
+        loader: ()=>fetch('https://server-side-chil-gamer.vercel.app/ratedReviews')
       },
       {path:"/login",
         element:<Login></Login>
@@ -34,27 +35,27 @@ import Developer from "../Comp_Utilities/Developer";
         element:<Register></Register>
       },
       {path:"/add-review",
-        element:<AddReview></AddReview>
+        element:<PrivateRoute><AddReview></AddReview></PrivateRoute>
       },
       {path:"/review/:id",
-        element:<ReviewDetails></ReviewDetails> ,
-        loader:({params})=>fetch(`http://localhost:4000/reviews/${params.id}`)
+        element:<PrivateRoute><ReviewDetails></ReviewDetails></PrivateRoute> ,
+        loader:({params})=>fetch(`https://server-side-chil-gamer.vercel.app/reviews/${params.id}`)
       },
       {path:"/reviews",
         element: <AllReview></AllReview>,
-        loader: ()=>fetch("http://localhost:4000/reviews")
+        loader: ()=>fetch("https://server-side-chil-gamer.vercel.app/reviews")
       },
       {path:"/my-reviews",
-        element:<MyReview></MyReview>,
-        loader: ()=>fetch("http://localhost:4000/reviews")
+        element:<PrivateRoute><MyReview></MyReview></PrivateRoute>,
+        loader: ()=>fetch("https://server-side-chil-gamer.vercel.app/reviews")
       },
       {path:"/update-review/:id",
         element:<UpdateReview></UpdateReview>,
-        loader:({params})=>fetch(`http://localhost:4000/reviews/${params.id}`)
+        loader:({params})=>fetch(`https://server-side-chil-gamer.vercel.app/reviews/${params.id}`)
       },
       {path:"/my-watchlist",
-        element:<Watchlist></Watchlist>,
-        loader: ()=>fetch("http://localhost:4000/watchlist")
+        element:<PrivateRoute><Watchlist></Watchlist></PrivateRoute>,
+        // loader: ()=>fetch("https://server-side-chil-gamer.vercel.app/watchlist")
       }
      
     ]

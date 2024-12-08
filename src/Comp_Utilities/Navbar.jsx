@@ -3,18 +3,19 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import picture from "../assets/LOGO-CG.jpg"
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../Comp_Core/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import 'react-tooltip/dist/react-tooltip.css'
 import { IoMoon, IoSunny } from "react-icons/io5";
+import { IoGameControllerSharp } from "react-icons/io5"
 
 
 
 
 const Navbar = () => {
-  const { user, userSignOut } = useContext(AuthContext);
-  const [dark, setDark] = useState(false)
+  const { user, userSignOut, dark, setDark } = useContext(AuthContext);
+  
   const links = <>
     <NavLink to="/">Home</NavLink>
     <NavLink to="/reviews">All Reviews</NavLink>
@@ -29,12 +30,12 @@ const Navbar = () => {
   const darkModeHandler = () => {
     setDark(!dark);
     document.body.classList.toggle("dark");
-}
+  }
 
-  return (
-    <div>
+  return (<>
+    <div className="bg-amber-400 dark:bg-gray-800 fixed z-50 top-0 w-full text-gray-800 dark:text-white px-2 md:px-5 lg:px-10 h-26 py-auto">
       <ToastContainer autoClose={2000} position="top-center" />
-      <div className="navbar bg-base-100">
+      <div className="navbar ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className=" lg:hidden">
@@ -46,7 +47,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link to="/">LOGO</Link>
+          <Link to="/"> <div className="flex gap-3 items-center"><IoGameControllerSharp className="text-2xl" /><span className="text-2xl font-bold">ChillGamer</span></div></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-5">
@@ -77,8 +78,8 @@ const Navbar = () => {
                 <Link className="btn btn-active btn-neutral ml-2" to="/login">LogIn</Link>
               </div>
               <div className={`${(pathname === '/register') ? 'p-2' : 'hidden'} `}>
-              <Link className="btn btn-active btn-neutral ml-2" to="/login">LogIn</Link>
-              <Link className="btn btn-active btn-neutral ml-2" to="/">Back to Home</Link>
+                <Link className="btn btn-active btn-neutral ml-2" to="/login">LogIn</Link>
+                <Link className="btn btn-active btn-neutral ml-2" to="/">Back to Home</Link>
               </div>
               <div className={`${(pathname === '/login') ? 'p-2' : 'hidden'} `}>
                 <Link className="btn btn-active btn-neutral ml-2" to="/register">Registar</Link>
@@ -86,20 +87,22 @@ const Navbar = () => {
               </div>
             </div>
           }
-         <div className="mode-buttons">
-         <button onClick={()=> darkModeHandler()}>
-      {
-          
-          dark && <IoSunny /> // render sunny when dark is true
-      }
-      {
-          !dark && <IoMoon /> // render moon when dark is false
-      }
- </button>
-         </div>
+          <div className="mode-buttons">
+            <button onClick={() => darkModeHandler()}>
+              {
+
+                dark && <IoSunny className="text-5xl text-white" />
+              }
+              {
+                !dark && <IoMoon className="text-5xl" />
+              }
+            </button>
+          </div>
         </div>
       </div>
     </div>
+    <div className="h-16"></div>
+    </>
   );
 };
 

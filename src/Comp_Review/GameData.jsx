@@ -1,14 +1,14 @@
 
 
-const GameData = ({game}) => {
+const GameData = ({game,idx}) => {
 
     const {title, rating, publication, genre}=game;
     return (
    
       <tr>
-        <th>1</th>
+        <th>{idx+1}</th>
         <td>{title}</td>
-        <td>{rating} out of 10</td>
+        <td>{rating}</td>
         <td>{genre}</td>
       </tr>
    

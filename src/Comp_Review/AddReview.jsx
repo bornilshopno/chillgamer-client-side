@@ -4,12 +4,17 @@ import { AuthContext } from "../Comp_Core/AuthProvider";
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { toast } from "react-toastify";
 
 const AddReview = () => {
   const { user } = useContext(AuthContext);
   const [rating, setRating] = useState(0)
   const addReviewHandler = (e) => {
     e.preventDefault();
+    if(!rating){
+      toast.error("please provide rating to submit your review");
+      return;
+    }
     console.log('Click Maicche')
     const form = e.target;
     const thumbnail = form.thumbnail.value;
@@ -25,7 +30,7 @@ const AddReview = () => {
 
     console.log(newReview)
 
-    fetch('http://localhost:4000/reviews', {
+    fetch('https://server-side-chil-gamer.vercel.app/reviews', {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newReview)
@@ -70,8 +75,8 @@ const AddReview = () => {
                   <label className="label">
                     <span className="label-text">Rating</span>
                   </label>
-                  {/* <input type="number" name="rating" placeholder="Rate the Game" className="input input-bordered" required /> */}
-                  <Rating style={{ maxWidth: 250 }} value={rating} onChange={setRating} />
+                  
+                  <Rating style={{ maxWidth: 250 }} value={rating} onChange={setRating} required />
                 </div>
                 <div className="form-control lg:col-span-2">
                   <label className="label">

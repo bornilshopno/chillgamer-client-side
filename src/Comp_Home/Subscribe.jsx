@@ -8,10 +8,10 @@ toast.success("Thanks for being with us!")
 }
 
     return (
-        <div className="flex flex-col md:flex-row justify-between items-center gap-3 p-4 border-2 w-11/12 lg:w-10/12 mx-auto rounded-3xl bg-amber-400">
+        <div className="flex flex-col py-5 mt-10 md:flex-row justify-between items-center gap-3 p-4 border-2 w-11/12 lg:w-10/12 mx-auto rounded-3xl bg-amber-400">
             <div className="md:w-1/2 flex gap-10 items-center mb-auto">
-                <GoBell className="text-7xl"></GoBell>
-                <h2 className="font-semibold">Subscribe to our email now and never miss our best coupons available!</h2>
+                <GoBell className="text-7xl text-gray-800"></GoBell>
+                <h2 className="font-semibold text-gray-800">Subscribe to our email now and never miss our best coupons available!</h2>
             </div>
 
             <form className="form-control w-11/12 md:w-1/2 " onSubmit={subscriberHandler}>

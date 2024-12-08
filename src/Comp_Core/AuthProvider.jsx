@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [watchlisted, setWatchListed] = useState(false);
     const [userWatchList, setUserWatchList]=useState([])
-    
+    const [dark, setDark] = useState(false)
     
     console.log(user)
 
@@ -44,8 +44,8 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
     const authInfo = {
-        user,watchlisted, 
-        createUser, userLogin, userSignOut, googleSignIn,setUser,setWatchListed,userWatchList, setUserWatchList
+        user,watchlisted, dark, 
+        createUser, userLogin, userSignOut, googleSignIn,setUser,setWatchListed,userWatchList, setUserWatchList,setDark,
     }
 
 

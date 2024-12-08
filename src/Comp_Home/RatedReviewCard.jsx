@@ -5,7 +5,7 @@ const RatedReviewCard = ({ rReviews }) => {
     const { _id, thumbnail, title, review, rating, publication, genre, email, name } = rReviews;
     return (
         <div>
-            <div className="card bg-base-100  shadow-xl">
+            <div className="card bg-base-100 border-2">
                 <figure>
                     <img
                         src={thumbnail}

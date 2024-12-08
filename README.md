@@ -37,15 +37,21 @@ Chill Gamer, a user-friendly game review application. The goal of this project i
 * Swiper
 * React Simple Typewriter
 * React Awessome Reveal
+* aos
+* react-icons
+* 
+
+## Server Side Link:
+https://server-side-chil-gamer.vercel.app
 
 
 ### GitHub Repository
 * Client Side
-**https://github.com/programming-hero-web-course1/b10-a9-authentication-bornilshopno**
+**https://github.com/programming-hero-web-course2/b10-a10-client-side-bornilshopno**
 
 * Server Side
-**https://github.com/programming-hero-web-course1/b10-a9-authentication-bornilshopno**
+**https://github.com/programming-hero-web-course2/b10-a10-server-side-bornilshopno**
 
 ### Live Page Link:
 
-**https://discount-coupons.netlify.app/**
+**https://chill-gamer-site.netlify.app/**

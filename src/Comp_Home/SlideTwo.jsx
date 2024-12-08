@@ -4,7 +4,7 @@ import { Fade } from "react-awesome-reveal";
 const SlideTwo = () => {
 
     return (
-        <div className="bg-gray-700 ">
+        <div className="bg-gray-700  ">
 
             <div className="grid grid-cols-2 min-h-80 place-items-center gap-10 lg:w-10/12 mx-auto">
                 <h1 className="text-2xl lg:text-5xl font-bold text-white text-right">Stay Connected with ChillGamer Community</h1>

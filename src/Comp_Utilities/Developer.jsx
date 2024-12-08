@@ -1,6 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DevDetails from "./DevDetails";
 import { Helmet } from "react-helmet-async";
+import { IoGameControllerSharp } from "react-icons/io5";
 
 const Deveoper = () => {
     // let navigate=useNavigate()
@@ -15,7 +16,7 @@ const Deveoper = () => {
             <div className="">
                 <h2 className="text-4xl font-semibold text-center text-[#a04d72] border-2 px-3 lg:px-6 border-[#a04d72] rounded-md pb-2 pt-1">Developer Portfolio</h2>
             </div>
-            <div className=""><Link to={"/"} className="" >Back To Home</Link></div>
+            <div className=""><Link to={"/"} className="" ><Link to="/"><span className="text-center">Go Back To</span> <div className="flex gap-3 items-center"><IoGameControllerSharp className="text-2xl" /><span className="text-2xl font-bold">ChillGamer</span></div></Link></Link></div>
         </div>
 
         

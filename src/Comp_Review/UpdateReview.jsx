@@ -21,7 +21,7 @@ const UpdateReview = () => {
         const title = form.title.value;
         const thumbnail = form.thumbnail.value;
         const review = form.review.value;
-        const rating = form.rating.value;
+        const rating = ratings;
         const publication = form.publication.value;
         const genre = form.genre.value;
         const email = form.email.value;
@@ -32,7 +32,7 @@ const UpdateReview = () => {
 
         console.log(updatedReview)
 
-        fetch(`http://localhost:4000/reviews/${_id}`, {
+        fetch(`https://server-side-chil-gamer.vercel.app/reviews/${_id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(updatedReview)
