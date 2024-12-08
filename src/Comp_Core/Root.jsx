@@ -12,6 +12,8 @@ import Watchlist from "../Comp_Review/Watchlist";
 import MyReview from "../Comp_Review/MyReview";
 import UpdateReview from "../Comp_Review/UpdateReview";
 import ErrorPage from "../Comp_Utilities/ErrorPage";
+import Developer from "../Comp_Utilities/Developer";
+
 
 
  const router = createBrowserRouter([
@@ -54,7 +56,12 @@ import ErrorPage from "../Comp_Utilities/ErrorPage";
         element:<Watchlist></Watchlist>,
         loader: ()=>fetch("http://localhost:4000/watchlist")
       }
+     
     ]
+    },
+  
+    {path:"/developer-details",
+      element: <Developer></Developer>
     },
     {path:"*",
       element:<ErrorPage></ErrorPage>

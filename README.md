@@ -8,11 +8,12 @@ A Game Review Application
 
 Chill Gamer, a user-friendly game review application. The goal of this project is to design a platform where users can explore and share game reviews. We developed key features such as user authentication and review management to enhance the user experience. The application developed considering to have a clean and responsive UI, focusing on simplicity and functionality to provide a "chill" experience.
 
-### Key Features of Discount Pro Application
-* Platform to showcase the reviews on games in a single place and same time users themselves will use the feature to share their own review
+### Key Features of Chill Gamer Application
+* Platform to allocate the reviews on games in a single place and same time users themselves will use the feature to share their own review
 * User Management
 * Database Management
 * Application is responsive for all devices, including mobile, tablet, and desktop views. 
+
 
 
 
@@ -34,6 +35,8 @@ Chill Gamer, a user-friendly game review application. The goal of this project i
 * React ToolTip
 * Sweet Alert 2
 * Swiper
+* React Simple Typewriter
+* React Awessome Reveal
 
 
 ### GitHub Repository

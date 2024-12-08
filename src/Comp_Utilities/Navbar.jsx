@@ -3,17 +3,18 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import picture from "../assets/LOGO-CG.jpg"
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Comp_Core/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import 'react-tooltip/dist/react-tooltip.css'
+import { IoMoon, IoSunny } from "react-icons/io5";
 
 
 
 
 const Navbar = () => {
   const { user, userSignOut } = useContext(AuthContext);
-
+  const [dark, setDark] = useState(false)
   const links = <>
     <NavLink to="/">Home</NavLink>
     <NavLink to="/reviews">All Reviews</NavLink>
@@ -25,6 +26,10 @@ const Navbar = () => {
 
 
   const { pathname } = useLocation();
+  const darkModeHandler = () => {
+    setDark(!dark);
+    document.body.classList.toggle("dark");
+}
 
   return (
     <div>
@@ -81,7 +86,17 @@ const Navbar = () => {
               </div>
             </div>
           }
-         
+         <div className="mode-buttons">
+         <button onClick={()=> darkModeHandler()}>
+      {
+          
+          dark && <IoSunny /> // render sunny when dark is true
+      }
+      {
+          !dark && <IoMoon /> // render moon when dark is false
+      }
+ </button>
+         </div>
         </div>
       </div>
     </div>

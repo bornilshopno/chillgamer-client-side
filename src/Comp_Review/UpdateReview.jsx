@@ -1,12 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Comp_Core/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 
 const UpdateReview = () => {
     const reviewToUpdate = useLoaderData();
+    
     const { _id, thumbnail, title, review, rating, publication, genre, email, name } = reviewToUpdate;
+    const [ratings, setRatings] = useState(rating)
     console.log(reviewToUpdate)
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
@@ -67,7 +71,8 @@ const UpdateReview = () => {
                             <label className="label">
                                 <span className="label-text">Rating</span>
                             </label>
-                            <input type="number" name="rating" placeholder="Rate the Game" defaultValue={rating} className="input input-bordered" required />
+                            <Rating style={{ maxWidth: 250 }} value={ratings} onChange={setRatings} />
+                            {/* <input type="number" name="rating" placeholder="Rate the Game" defaultValue={rating} className="input input-bordered" required /> */}
                         </div>
                         <div className="form-control lg:col-span-2">
                             <label className="label">

@@ -4,7 +4,7 @@ import { useTypewriter } from "react-simple-typewriter";
 const SlideOne = () => {
     const [text] = useTypewriter({
         words: ["Game Review Application"],
-        loop: 1,
+        loop: false,
         onLoopDone: () => console.log(`loop completed after 3 runs.`)
     })
 

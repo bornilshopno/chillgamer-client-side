@@ -1,10 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Comp_Core/AuthProvider";
+import { Rating } from '@smastrom/react-rating'
 
+import '@smastrom/react-rating/style.css'
 
 const AddReview = () => {
   const { user } = useContext(AuthContext);
+  const [rating, setRating] = useState(0)
   const addReviewHandler = (e) => {
     e.preventDefault();
     console.log('Click Maicche')
@@ -12,7 +15,7 @@ const AddReview = () => {
     const thumbnail = form.thumbnail.value;
     const title = form.title.value;
     const review = form.review.value;
-    const rating = form.rating.value;
+    // const rating = form.rating.value;
     const publication = form.publication.value;
     const genre = form.genre.value;
     const email = form.email.value;
@@ -67,7 +70,8 @@ const AddReview = () => {
                   <label className="label">
                     <span className="label-text">Rating</span>
                   </label>
-                  <input type="number" name="rating" placeholder="Rate the Game" className="input input-bordered" required />
+                  {/* <input type="number" name="rating" placeholder="Rate the Game" className="input input-bordered" required /> */}
+                  <Rating style={{ maxWidth: 250 }} value={rating} onChange={setRating} />
                 </div>
                 <div className="form-control lg:col-span-2">
                   <label className="label">
