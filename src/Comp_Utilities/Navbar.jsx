@@ -10,6 +10,7 @@ import 'react-tooltip/dist/react-tooltip.css'
 
 
 
+
 const Navbar = () => {
   const { user, userSignOut } = useContext(AuthContext);
 
@@ -80,6 +81,7 @@ const Navbar = () => {
               </div>
             </div>
           }
+         
         </div>
       </div>
     </div>

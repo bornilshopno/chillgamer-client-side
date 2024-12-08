@@ -8,15 +8,18 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/bundle'
+import SlideOne from './SlideOne';
+import SlideTwo from './SlideTwo';
+import SlideThree from './SlideThree';
 
 const Banner = () => {
 
     return (
-        <div>
+        <div className='h-80'>
             <Swiper  modules={[Autoplay, Pagination]} // Register the Autoplay module
             loop={true}
             autoplay={{
-                delay: 1000, // Delay between slides in milliseconds
+                delay: 5000, // Delay between slides in milliseconds
                 disableOnInteraction: false, // Keeps autoplay running even after user interaction
             }}
                 spaceBetween={50}
@@ -25,9 +28,9 @@ const Banner = () => {
                 // onSlideChange={() => console.log('slide change')}
                 // onSwiper={(swiper) => console.log(swiper)}
             >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
+                <SwiperSlide><SlideOne></SlideOne></SwiperSlide>
+                <SwiperSlide><SlideTwo></SlideTwo></SwiperSlide>
+                <SwiperSlide><SlideThree></SlideThree></SwiperSlide>
 
             </Swiper>
         </div>

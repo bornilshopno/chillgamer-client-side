@@ -48,15 +48,13 @@ const MyReview = () => {
 
     }
 
-    const updateHandler = (id) => {
-        console.log(id)
-    }
+    
 
 
 
 
     return (
-        <div>
+        <div className="lg:min-h-96">
             {myReviews.length !== 0 ?
                 <div className="overflow-x-auto">
                     <table className="table">
@@ -78,7 +76,7 @@ const MyReview = () => {
                                     <td>{mine.rating}</td>
                                     <td>
                                         <div className="join join-vertical lg:join-horizontal">
-                                           <Link to={`/update-review/${mine._id}`} > <button className="btn join-item btn-info" onClick={() => updateHandler(`${mine._id}`)}>Update</button></Link>
+                                           <Link to={`/update-review/${mine._id}`} > <button className="btn join-item btn-info" >Update</button></Link>
                                             {/*  */}
                                             <button className="btn join-item btn-error" onClick={() => deleteHandler(`${mine._id}`)}>Delete</button>
                                         </div>

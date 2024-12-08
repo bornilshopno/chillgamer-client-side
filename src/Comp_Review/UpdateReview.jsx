@@ -6,22 +6,25 @@ import Swal from "sweetalert2";
 
 const UpdateReview = () => {
     const reviewToUpdate = useLoaderData();
-    const {_id, thumbnail, title, review, rating, publication, genre, email, name } = reviewToUpdate;
+    const { _id, thumbnail, title, review, rating, publication, genre, email, name } = reviewToUpdate;
     console.log(reviewToUpdate)
     const { user } = useContext(AuthContext)
-    const navigate=useNavigate()
+    const navigate = useNavigate()
 
     const updateReviewHandler = (e) => {
         e.preventDefault();
         const form = e.target;
+        const title = form.title.value;
         const thumbnail = form.thumbnail.value;
         const review = form.review.value;
         const rating = form.rating.value;
         const publication = form.publication.value;
         const genre = form.genre.value;
+        const email = form.email.value;
+        const name = form.name.value;
 
 
-        const updatedReview = { thumbnail, review, rating, publication, genre}
+        const updatedReview = { title,thumbnail, review, rating, publication, genre, email, name }
 
         console.log(updatedReview)
 
@@ -54,6 +57,18 @@ const UpdateReview = () => {
                 <form className="card-body" onSubmit={updateReviewHandler}>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Game Title</span>
+                            </label>
+                            <input type="text" name="title" defaultValue={title} placeholder="Game Name" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Rating</span>
+                            </label>
+                            <input type="number" name="rating" placeholder="Rate the Game" defaultValue={rating} className="input input-bordered" required />
+                        </div>
                         <div className="form-control lg:col-span-2">
                             <label className="label">
                                 <span className="label-text">Game Thumbnail</span>
@@ -70,18 +85,8 @@ const UpdateReview = () => {
 
                         </div>
 
-                        {/* <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Review Description</span>
-                            </label>
-                            <input type="text" name="review" placeholder="Detail Review" className="input input-bordered" required />
-                        </div> */}
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Rating</span>
-                            </label>
-                            <input type="number" name="rating" placeholder="Rate the Game" defaultValue={rating} className="input input-bordered" required />
-                        </div>
+
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Publishing Year</span>
@@ -107,13 +112,13 @@ const UpdateReview = () => {
                             </label>
                             <input type="email" name="email" className="input input-bordered bg-slate-100" value={user?.email || ""} readOnly />
                         </div>
-                        {/* <div className="form-control">
+                        <div className="form-control">
                             <label className="label">
                                 <span className="label-text">User Name</span>
                             </label>
-                            <input type="text" name="name" className="input input-bordered bg-slate-100" value={user?.displayName || ""} readOnly />
+                            <input type="text" name="name" className="input input-bordered bg-slate-100" value={name} readOnly />
 
-                        </div> */}
+                        </div>
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Update your Review</button>

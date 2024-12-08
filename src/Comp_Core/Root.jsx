@@ -11,6 +11,7 @@ import ReviewDetails from "../Comp_Review/ReviewDetails";
 import Watchlist from "../Comp_Review/Watchlist";
 import MyReview from "../Comp_Review/MyReview";
 import UpdateReview from "../Comp_Review/UpdateReview";
+import ErrorPage from "../Comp_Utilities/ErrorPage";
 
 
  const router = createBrowserRouter([
@@ -21,7 +22,8 @@ import UpdateReview from "../Comp_Review/UpdateReview";
       children:[
         {
         path:"/",
-        element: <Home/>
+        element: <Home/>,
+        loader: ()=>fetch('http://localhost:4000/ratedReviews')
       },
       {path:"/login",
         element:<Login></Login>
@@ -55,7 +57,7 @@ import UpdateReview from "../Comp_Review/UpdateReview";
     ]
     },
     {path:"*",
-      element:<h2>Errror page</h2>
+      element:<ErrorPage></ErrorPage>
     }
   ]
   ,

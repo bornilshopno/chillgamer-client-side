@@ -11,7 +11,7 @@ const CardOfAllReveiw = ({ reviews }) => {
                 <img
                     src={thumbnail}
                     className="w-full h-60"
-                    alt="Shoes" />
+                    alt="thumbnail" />
             </figure>
             <div className="card-body">
 
