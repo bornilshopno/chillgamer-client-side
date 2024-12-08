@@ -25,8 +25,7 @@ const Register = () => {
     const email = userInput.get("email");
     const photo = userInput.get("photo");
     const password = userInput.get("password");
-    console.log({uName, email,photo,password})
-
+ 
     setPassErr("")
     let regExp = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/
     if (!regExp.test(password)) {

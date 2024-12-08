@@ -11,7 +11,6 @@ const UpdateReview = () => {
     
     const { _id, thumbnail, title, review, rating, publication, genre, email, name } = reviewToUpdate;
     const [ratings, setRatings] = useState(rating)
-    console.log(reviewToUpdate)
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 
@@ -30,8 +29,6 @@ const UpdateReview = () => {
 
         const updatedReview = { title,thumbnail, review, rating, publication, genre, email, name }
 
-        console.log(updatedReview)
-
         fetch(`https://server-side-chil-gamer.vercel.app/reviews/${_id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
@@ -39,7 +36,7 @@ const UpdateReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+       
                 if (data.modifiedCount) {
                     Swal.fire({
                         title: 'success!',

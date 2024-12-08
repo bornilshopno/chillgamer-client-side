@@ -8,12 +8,10 @@ const MyReview = () => {
     const allReviews = useLoaderData();
     const { user } = useContext(AuthContext);
     const myReviews = allReviews.filter(reviews => reviews.email === user?.email);
-    console.log(myReviews);
+   
     const navigate = useNavigate()
     const deleteHandler = (id) => {
-        console.log(id);
-
-        Swal.fire({
+               Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
             icon: "warning",
@@ -28,7 +26,7 @@ const MyReview = () => {
                 )
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                    
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",

@@ -12,8 +12,7 @@ const ReviewDetails = () => {
   const navigate = useNavigate()
  const watchlistedBy= user.email;
 
-//  const resultFind=userWatchList.find(userGame=>userGame.title===title)
-// console.log(resultFind)
+
   const { thumbnail, title, review, rating, publication, genre, email, name } = seletedReview;
   const watchlistHandler = () => {
 
@@ -25,7 +24,7 @@ const ReviewDetails = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+
         if (data.insertedId) {
           Swal.fire({
             title: 'Noted!',

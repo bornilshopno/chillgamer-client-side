@@ -15,7 +15,7 @@ const AddReview = () => {
       toast.error("please provide rating to submit your review");
       return;
     }
-    console.log('Click Maicche')
+   
     const form = e.target;
     const thumbnail = form.thumbnail.value;
     const title = form.title.value;
@@ -28,7 +28,7 @@ const AddReview = () => {
 
     const newReview = { thumbnail, title, review, rating, publication, genre, email, name }
 
-    console.log(newReview)
+
 
     fetch('https://server-side-chil-gamer.vercel.app/reviews', {
       method: "POST",
@@ -37,8 +37,7 @@ const AddReview = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
-        if (data.insertedId) {
+             if (data.insertedId) {
           Swal.fire({
             title: 'success!',
             text: 'Review Added Successfully',

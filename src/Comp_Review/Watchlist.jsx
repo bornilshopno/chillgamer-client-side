@@ -10,7 +10,7 @@ const Watchlist = () => {
   useEffect(() => {
     fetch(`https://server-side-chil-gamer.vercel.app/watchlist/${user.email}`)
     .then (res=>res.json())
-    .then (data=>{console.log(data);
+    .then (data=>{
       setUserWatchList(data)})
 
   }, [user])

@@ -14,9 +14,7 @@ const AuthProvider = ({ children }) => {
     const [userWatchList, setUserWatchList]=useState([])
     const [dark, setDark] = useState(false)
     
-    console.log(user)
-
-
+    
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
