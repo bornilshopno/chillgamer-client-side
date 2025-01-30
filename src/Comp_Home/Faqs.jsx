@@ -2,7 +2,7 @@ import image from "../assets/faq.jpg"
 
 const Faqs = () => {
     return (<div className="w-11/12 md:w-10/12 mx-auto">
-        <h2 className="text-center text-2xl md:text-5xl font-bold py-5 md:py-10 border-2 border-x-white border-y-black rounded-lg w-2/3 md:w-1/2 mx-auto mt-5">FAQ: Frequently Asked Questions</h2>
+        <h2 className="text-center text-2xl md:text-5xl font-bold py-3 md:py-6 border-2 border-x-white border-y-black rounded-lg w-2/3 md:w-1/2 mx-auto mt-5">FAQ: Frequently Asked Questions</h2>
         <h3 className="px-5 lg:px-20 pt-5 md:pt-12">Explore our comprehensive FAQ section on game reviews, designed to address all your queries. From understanding how reviews are written to navigating ratings and reporting, we provide clear, concise answers. Whether you're a reviewer or a reader, find everything you need to enhance your game review experience seamlessly.</h3>
 
         <div className="flex flex-col md:flex-row gap-5 mt-10 ">

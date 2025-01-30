@@ -38,7 +38,7 @@ import PrivateRoute from "../Comp_Utilities/PrivateRoute";
         element:<PrivateRoute><AddReview></AddReview></PrivateRoute>
       },
       {path:"/review/:id",
-        element:<PrivateRoute><ReviewDetails></ReviewDetails></PrivateRoute> ,
+        element:<ReviewDetails></ReviewDetails> ,
         loader:({params})=>fetch(`https://server-side-chil-gamer.vercel.app/reviews/${params.id}`)
       },
       {path:"/reviews",
@@ -55,7 +55,7 @@ import PrivateRoute from "../Comp_Utilities/PrivateRoute";
       },
       {path:"/my-watchlist",
         element:<PrivateRoute><Watchlist></Watchlist></PrivateRoute>,
-        // loader: ()=>fetch("https://server-side-chil-gamer.vercel.app/watchlist")
+        
       }
      
     ]

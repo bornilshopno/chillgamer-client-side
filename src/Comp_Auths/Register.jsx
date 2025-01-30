@@ -7,10 +7,12 @@ import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../Comp_Core/AuthProvider";
 import Swal from 'sweetalert2'
+import Lottie from "lottie-react";
+import regAnimation from "../assets/RegisterAnimation.json"
 
 
 const Register = () => {
-    const{createUser,setUser,googleSignIn}=useContext(AuthContext)
+    const{createUser,setUser,googleSignIn,setLoading}=useContext(AuthContext)
 
     const [visible, setVisible] = useState(false)
     const[passErr,setPassErr]=useState("")
@@ -39,6 +41,7 @@ const Register = () => {
         // Signed up 
         const newUser = userCredential.user;
         setUser(newUser);
+        setLoading(false);
         Swal.fire({
             title: 'Success!',
             text: 'Thanks for registering in chillGamer',
@@ -79,17 +82,21 @@ const Register = () => {
     return (
         <>
             <Helmet>
-                <title>Chill Gamer || Registration</title>
+                <title>ChillGamer || Registration</title>
             </Helmet>
-            <div className="bg-gradient-to-br from-sky-100 to-sky-500 ">
+            <div className="flex flex-col lg:flex-row gap-5 items-center justify-center bg-gradient-to-br from-sky-100 to-sky-500">
+            <div className="text-center lg:text-center lg:flex-1 ">
+                        <Lottie animationData={regAnimation} className="max-w-80 mx-auto"></Lottie>
+                    </div>
+            <div className=" lg:flex-1">
 
+            <h2 className="text-center text-4xl font-bold text-gray-600 py-4 md:pt-10 ">Let's Register</h2>
+               
+                <div className="card bg-base-100 w-10/12  mx-auto shrink-0 shadow-2xl">
 
-                <h2 className="text-center text-4xl font-bold text-gray-600 pb-5">Register with chillGamer</h2>
-                <div className="card bg-base-100 w-10/12 lg:w-7/12 mx-auto shrink-0 shadow-2xl">
+              
 
-                    
-
-                    <form onSubmit={handleRegister} className="card-body">
+                    <form onSubmit={handleRegister} className="card-body pb-0">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -129,7 +136,7 @@ const Register = () => {
 
 
                     </form>
-
+                    <div className="divider divider-neutral">or</div>
                     <button className="btn btn-primary mx-8 mb-8" type="submit" onClick={googleHandler}>
                         <div className="flex gap-2 items-center px-3 py-1 justify-center">
                         <FcGoogle />
@@ -138,6 +145,7 @@ const Register = () => {
                         </div>
                     </button>
                 </div>
+            </div>
             </div>
         </>
     );

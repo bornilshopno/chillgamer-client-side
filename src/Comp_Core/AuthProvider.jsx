@@ -11,15 +11,15 @@ const AuthProvider = ({ children }) => {
     const auth = getAuth(app);
     const [user, setUser] = useState(null)
     const [watchlisted, setWatchListed] = useState(false);
-    const [userWatchList, setUserWatchList]=useState([])
-    const [dark, setDark] = useState(false)
-    
-    
+    const [userWatchList, setUserWatchList] = useState([])
+    const [dark, setDark] = useState(false);
+    const [loading, setLoading] = useState(true);
+
+
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-
-
+            setLoading(false)
         })
 
         return () => unSubscribe();
@@ -27,23 +27,27 @@ const AuthProvider = ({ children }) => {
 
 
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const userLogin = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password)
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
     }
     const userSignOut = () => {
+        setLoading(true);
         setUser(null);
         return signOut(auth)
     }
     const provider = new GoogleAuthProvider()
     const googleSignIn = () => {
-        return signInWithPopup(auth, provider)
+        setLoading(true)
+        return signInWithPopup(auth, provider);
     }
     const authInfo = {
-        user,watchlisted, dark, 
-        createUser, userLogin, userSignOut, googleSignIn,setUser,setWatchListed,userWatchList, setUserWatchList,setDark,
+        user, watchlisted, dark, loading, userWatchList,
+        createUser, userLogin, userSignOut, googleSignIn, setUser, setWatchListed, setUserWatchList, setDark, setLoading,
     }
 
 

@@ -5,6 +5,7 @@ import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const AddReview = () => {
   const { user } = useContext(AuthContext);
@@ -51,6 +52,9 @@ const AddReview = () => {
 
   return (
     <div>
+       <Helmet>
+        <title>ChillGamer || AddReview</title>
+      </Helmet>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-center lg:w-5/12">
@@ -108,9 +112,7 @@ const AddReview = () => {
                     <option>Action</option>
                     <option>RPG</option>
                     <option>Adventure</option>
-                    <option>Others</option>
-
-                  </select>
+                   </select>
                 </div>
                 <div className="form-control">
                   <label className="label">

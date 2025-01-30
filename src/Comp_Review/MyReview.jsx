@@ -2,16 +2,17 @@ import { useContext } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Comp_Core/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const MyReview = () => {
     const allReviews = useLoaderData();
     const { user } = useContext(AuthContext);
     const myReviews = allReviews.filter(reviews => reviews.email === user?.email);
-   
+
     const navigate = useNavigate()
     const deleteHandler = (id) => {
-               Swal.fire({
+        Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
             icon: "warning",
@@ -26,7 +27,7 @@ const MyReview = () => {
                 )
                     .then(res => res.json())
                     .then(data => {
-                    
+
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
@@ -47,7 +48,10 @@ const MyReview = () => {
     }
 
     return (
-        <div className="lg:min-h-96 my-10 lg:my-20">
+        <div className="lg:min-h-96 py-10 lg:py-20 bg-gradient-to-br from-amber-200 to-gray-200 dark:from-gray-700 dark:to-black">
+            <Helmet>
+                <title>ChillGamer || MyReview</title>
+            </Helmet>
             {myReviews.length !== 0 ?
                 <div className="overflow-x-auto w-11/12 md:w-10/12 lg:w-9/12 mx-auto flex items-center">
                     <table className="table">
@@ -60,7 +64,7 @@ const MyReview = () => {
                                 <th className="text-center">Change of Mind</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="bg-white text-gray-800">
 
                             {myReviews.map(mine =>
                                 <tr key={mine._id}>
@@ -69,9 +73,9 @@ const MyReview = () => {
                                     <td className="text-center">{mine.rating}</td>
                                     <td className="text-center">
                                         <div className="join join-vertical lg:join-horizontal">
-                                           <Link to={`/update-review/${mine._id}`} > <button className="btn join-item btn-info" >Update</button></Link>
+                                            <Link to={`/update-review/${mine._id}`} > <button className="btn join-item" >Update</button></Link>
                                             {/*  */}
-                                            <button className="btn join-item btn-error" onClick={() => deleteHandler(`${mine._id}`)}>Delete</button>
+                                            <button className="btn join-item" onClick={() => deleteHandler(`${mine._id}`)}>Delete</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -82,7 +86,7 @@ const MyReview = () => {
                     </table>
                 </div>
                 :
-                <h2 className="text-4xl text-center">No Reviews from you here. <Link className="text-blue-500" to={"/add-review"}>Add Reviews</Link> now?</h2>}
+                <h2 className="text-4xl text-center dark:text-white">No reviews from you here yet. <br></br><Link className="text-blue-500" to={"/add-review"}>Add Reviews</Link> now?</h2>}
         </div>
     );
 };

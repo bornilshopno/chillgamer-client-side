@@ -103,9 +103,9 @@ Aos.init()
                 <div className=''>
                     <p className='font-semibold mx-auto'>Connect to Social Media</p>
                    <div className='flex gap-5'>
-                   <Link to="https://www.facebook.com/hopefulmanna/" target="_blank" rel="noopener noreferrer" className="btn btn-sm h-12"><FaSquareFacebook className='text-4xl'></FaSquareFacebook></Link>
-                    <Link to="https://github.com/bornilshopno" target="_blank" rel="noopener noreferrer" className="btn btn-sm h-12"><FaSquareGithub className='text-4xl'></FaSquareGithub></Link>
-                    <Link to="https://www.linkedin.com/in/md-ashraf-hossain-a8772284/" target="_blank" rel="noopener noreferrer" className="btn btn-sm h-12"><IoLogoLinkedin className='text-4xl'></IoLogoLinkedin></Link>
+                   <a href="https://www.facebook.com/hopefulmanna/" target="_blank" rel="noopener noreferrer" className="btn btn-sm h-12"><FaSquareFacebook className='text-4xl'></FaSquareFacebook></a>
+                    <a href="https://github.com/bornilshopno" target="_blank" rel="noopener noreferrer" className="btn btn-sm h-12"><FaSquareGithub className='text-4xl'></FaSquareGithub></a>
+                    <a href="https://www.linkedin.com/in/md-ashraf-hossain-a8772284/" target="_blank" rel="noopener noreferrer" className="btn btn-sm h-12"><IoLogoLinkedin className='text-4xl'></IoLogoLinkedin></a>
                    </div>
                 </div>
             </div>

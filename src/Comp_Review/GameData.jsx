@@ -6,10 +6,11 @@ const GameData = ({game,idx}) => {
     return (
    
       <tr>
-        <th>{idx+1}</th>
-        <td>{title}</td>
-        <td>{rating}</td>
-        <td>{genre}</td>
+        <th className="text-center">{idx+1}</th>
+        <td className="text-center">{title}</td>
+        <td className="text-center">{publication}</td>
+        <td className="text-center">{rating}</td>
+        <td className="text-center">{genre}</td>
       </tr>
    
     );

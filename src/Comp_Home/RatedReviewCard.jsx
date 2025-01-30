@@ -5,7 +5,7 @@ const RatedReviewCard = ({ rReviews }) => {
     const { _id, thumbnail, title, review, rating, publication, genre, email, name } = rReviews;
     return (
         <div>
-            <div className="card bg-base-100 border-2">
+            <div className="card bg-base-100 border-2 w-72 mx-auto ">
                 <figure>
                     <img
                         src={thumbnail}
@@ -13,7 +13,7 @@ const RatedReviewCard = ({ rReviews }) => {
                         className="w-full h-44" />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title justify-end">{title}</h2>
+                    <h2 className="card-title justify-end text-gray-700 h-12">{title}</h2>
                     <div className="flex justify-between">
                     <div className="badge badge-secondary">Rating : {rating}</div>
                     <div className="badge badge-secondary">Genre : {genre}</div>

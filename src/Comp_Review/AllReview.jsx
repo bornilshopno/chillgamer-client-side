@@ -34,11 +34,12 @@ const AllReview = () => {
     }
 
     return (
-        <div>
+       <div className="bg-gradient-to-br from-amber-200 to-gray-200 dark:from-gray-600 dark:to-black">
+         <div className="w-11/12 md:w-10/12 mx-auto">
             
-            <h1 className="text-5xl mx-16 text-center font-semibold py-10">Explore All the Reviews Here</h1>
-            <div className="flex gap-5 justify-end">
-                <div className="dropdown dropdown-bottom dropdown-end">
+            <h1 className="text-5xl mx-16 text-center font-semibold py-10  dark:text-gray-200">Explore All the Reviews Here</h1>
+            <div className="flex gap-5 justify-end mb-5">
+                <div className="dropdown dropdown-bottom dropdown-end focus:bg-blue-500">
                     <div tabIndex={0} role="button" className="btn btn-sm m-1">
                        { sort ? `Sorted by ${sort}` : 'Sort by'}
                         </div>
@@ -60,11 +61,12 @@ const AllReview = () => {
                 </div>
 
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {showReviews.map(reviews => <CardOfAllReveiw key={reviews._id} reviews={reviews}></CardOfAllReveiw>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 pb-5 lg:pb-10 ">
+                {showReviews?.map(reviews => <CardOfAllReveiw key={reviews._id} reviews={reviews}></CardOfAllReveiw>
                 )}
             </div>
         </div>
+       </div>
     );
 };
 
