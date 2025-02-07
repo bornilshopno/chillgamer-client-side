@@ -39,7 +39,12 @@ Chill Gamer, a user-friendly game review application. The goal of this project i
 * React Awessome Reveal
 * aos
 * react-icons
-* 
+
+### Run the project locally step-by-step guideline :
+- Open the project folder in editor.
+- See all the technologie version are updated in current version.
+- then open the editor terminal and write npm run dev press enter key.
+- terminal give you a local Server link copy the link and past your browser run the link. 
 
 ## Server Side Link:
 https://server-side-chil-gamer.vercel.app
@@ -47,10 +52,10 @@ https://server-side-chil-gamer.vercel.app
 
 ### GitHub Repository
 * Client Side
-**https://github.com/programming-hero-web-course2/b10-a10-client-side-bornilshopno**
+**https://github.com/bornilshopno/chillgamer-client-side**
 
 * Server Side
-**https://github.com/programming-hero-web-course2/b10-a10-server-side-bornilshopno**
+**https://github.com/bornilshopno/chillgamer-server-side**
 
 ### Live Page Link:
 
